@@ -7,7 +7,8 @@ This document serves as a persistent record of the project's architecture, major
 ## 🏛️ Architecture
 The project follows a **Modular MVC-lite** architecture:
 - **Frontend (`/client`)**: Vanilla HTML/CSS/JS served statically.
-- **Backend (`/server`)**: Node.js and Express server.
+- **Backend (`/server`)**: Modular logic (routes, controllers, models).
+- **Entry Point (`server.js`)**: Located in the root for easy deployment.
 - **Database**: MongoDB (Mongoose) for user data storage.
 - **Hosting**: Render
 
@@ -17,19 +18,13 @@ The project follows a **Modular MVC-lite** architecture:
 
 ### [2026-04-29] - Major Reorganization & Modularization
 - **Modular Structure**: Moved frontend files from `public/` to `client/` and backend logic to `server/`.
-- **Backend Refactoring**:
-    - Extracted database connection logic.
-    - Moved authentication logic to controllers.
-    - Main entry point set to `server/index.js`.
+- **Backend Refactoring**: Extracted database logic and authentication controllers.
 - **Cleanup**: Removed redundant folders and files.
 
 ### [2026-04-29] - Migration to MongoDB & Deployment Prep
 - **Database Migration**: Switched from MySQL to MongoDB using **Mongoose**.
-- **Environment Variables**: Added `dotenv` and created `.env` for secrets (ignored in Git).
-- **Architecture Updates**:
-    - Created `server/models/User.js` schema.
-    - Updated `authController.js` and `db.js` for MongoDB logic.
-- **Deployment**: Prepared project for **Render** hosting.
+- **Environment Variables**: Added `dotenv` and created `.env` for secrets.
+- **Entry Point**: Moved the main entry point back to `server.js` in the root (as requested) to simplify the **Render** start command.
 
 ---
 

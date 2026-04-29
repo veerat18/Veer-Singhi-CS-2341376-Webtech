@@ -30,8 +30,8 @@ veroma-rugs/
 ├── server/                 # Backend logic (Node.js/Express)
 │   ├── config/             # Database configuration
 │   ├── controllers/        # Logic for each route (Auth, etc.)
-│   ├── routes/             # API and page route definitions
-│   └── index.js            # Main server entry point
+│   └── routes/             # API and page route definitions
+├── server.js               # Main server entry point
 ├── package.json            # Project dependencies and scripts
 └── .gitignore              # Files ignored by Git
 ```

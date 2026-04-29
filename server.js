@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
+const connectDB = require("./server/config/db");
+const authRoutes = require("./server/routes/authRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,14 +13,14 @@ connectDB();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "../client")));
+app.use(express.static(path.join(__dirname, "client")));
 
 // Routes
 app.use("/", authRoutes);
 
 // Home Page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "index.html"));
 });
 
 // Start Server
