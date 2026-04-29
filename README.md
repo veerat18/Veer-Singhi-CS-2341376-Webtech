@@ -9,7 +9,9 @@ This application is built with a modular architecture to ensure scalability and 
 ### Tech Stack
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Backend**: Node.js, Express.js
-- **Database**: MySQL
+- **Database**: MongoDB (Mongoose)
+- **Hosting**: Render
+- **Image Storage**: Cloudinary (Recommended)
 
 ---
 
@@ -54,13 +56,9 @@ veroma-rugs/
    ```
 
 ### Database Setup
-1. Create a MySQL database named `veroma_db`.
-2. Create a table named `users` with the following columns:
-   - `id` (INT, Primary Key, Auto Increment)
-   - `username` (VARCHAR)
-   - `email` (VARCHAR, Unique)
-   - `password` (VARCHAR)
-3. Update the database credentials in `server/config/db.js`.
+1. Create a MongoDB database (e.g., using MongoDB Atlas).
+2. Get your connection string.
+3. Update the `MONGODB_URI` in your `.env` file.
 
 ### Running the Application
 To start the server, run:

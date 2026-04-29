@@ -1,9 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
+const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Connect to Database
+connectDB();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
