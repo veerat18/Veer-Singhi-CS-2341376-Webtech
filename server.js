@@ -13,14 +13,24 @@ connectDB();
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client")));
+// Static Files
+const clientPath = path.join(__dirname, "client");
+app.use(express.static(clientPath));
 
-// Routes
+// Auth Routes
 app.use("/", authRoutes);
+
+// Clean URL Routing for HTML files
+const pages = ["about", "collection", "contact", "login", "register"];
+pages.forEach(page => {
+    app.get(`/${page}`, (req, res) => {
+        res.sendFile(path.join(clientPath, `${page}.html`));
+    });
+});
 
 // Home Page
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "index.html"));
+    res.sendFile(path.join(clientPath, "index.html"));
 });
 
 // Start Server
